@@ -77,83 +77,11 @@
   <script src="{{ static_url("components/jquery/dist/jquery.min.js") }}"></script>
   <script src="{{ static_url("components/requirejs/require.js") }}"></script>
   <script src="{{ static_url("components/moment/min/moment.min.js") }}"></script>
-<!-- Navbar
-================================================== -->
-  <nav id="menubar" class="navbar navbar-default navbar-fixed-top" data-spy="affix">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="{{ from_base('/') }}">
-          <img src="{{ static_url("img/nav_logo.svg") }}" width="159"/>
-        </a>
-      </div>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <a class="active" href="http://jupyter.org">JUPYTER</a>
-          </li>
-          {{ head_text(from_base('/faq'), "FAQ") }}
-
-          {% block otherlinks %}
-            {% if provider_url %}
-              {{ head_icon(provider_url, "View on " + provider_label, provider_icon) }}
-            {% endif %}
-            {% if executor_url %}
-              {{ head_icon(executor_url, "Execute on " + executor_label, executor_icon) }}
-            {% endif %}
-          {% endblock %}
-        </ul>
-      </div><!-- /.navbar-collapse -->
-      {% block menu_extra %}
-      {% endblock %}
-    </div>
-  </nav>
-
-  {% block container %}<div class="container container-main">
+  {% block container %}<div class="container-fluid container-main">
     {% block body %}{% endblock %}
   </div>{% endblock container %}
 
-
-  {% block footer %}
-    <footer class="footer hidden-print">
-      <div class="container">
-        <div class="col-md-4">
-          <p>
-            This website does not host notebooks, it only renders notebooks
-            available on other websites.
-          </p>
-        </div>
-
-        <div class="col-md-4">
-          <p>
-            Delivered by <a href="http://www.fastly.com/">Fastly</a>,
-            Rendered by <a href="https://ovhcloud.com">OVHcloud</a>
-          </p>
-          <p>
-            nbviewer GitHub <a href="https://github.com/jupyter/nbviewer">repository</a>.
-          </p>
-        </div>
-
-        <div class="col-md-4">
-          {% block version_info %}
-            {% if git_data %}
-              <p>
-                nbviewer version:
-                <a href="https://github.com/jupyter/nbviewer/commit/{{git_data['sha']}}">
-                  {{git_data['sha'][:7]}}
-                </a>
-              </p>
-            {% endif %}
-          {% endblock version_info %}
-          {% block extra_footer %}{% endblock extra_footer %}
-        </div>
-      </div>
-    </footer>
-  {% endblock footer %}
 
   <script src="{{ static_url("components/bootstrap/js/bootstrap.min.js") }}"></script>
   <script src="{{ static_url("components/headroom.js/dist/headroom.min.js") }}"></script>
