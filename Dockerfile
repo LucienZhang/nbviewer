@@ -49,4 +49,6 @@ EXPOSE 8080
 USER nobody
 
 EXPOSE 9000
-CMD ["python", "-m", "nbviewer", "--port=8080"]
+
+VOLUME [ "/srv/nbviewer/notebooks" ]
+CMD ["python", "-m", "nbviewer", "--port=8080", "--localfiles=notebooks"]

@@ -19,19 +19,6 @@
 {%- endmacro %}
 
 
-{% macro link_breadcrumbs(crumbs) -%}
-  {% if crumbs %}
-  <ol class="breadcrumb">
-    {% for crumb in crumbs %}
-      <li>
-        <a href="{{ from_base(crumb['url']) }}">{{crumb['name']}}</a>
-      </li>
-    {% endfor %}
-  </ol>
-  {% endif %}
-{%- endmacro %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
